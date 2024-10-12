@@ -1,0 +1,38 @@
+<div class="contact-form">
+  <h2>İletişim Formu</h2>
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+    <mat-form-field class="full-width">
+      <mat-label>İsim</mat-label>
+      <input matInput formControlName="name" placeholder="Adınızı girin">
+      <mat-error *ngIf="contactForm.controls.name.invalid">
+        {{getValidationMessages(contactForm.controls.name,"İsim")}}
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" placeholder="Email adresinizi girin" type="email">
+      <mat-error *ngIf="contactForm.controls.email.invalid">
+        {{getValidationMessages(contactForm.controls.email,"Email")}}
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Konu</mat-label>
+      <input matInput formControlName="subject" placeholder="Konu">
+      <mat-error *ngIf="contactForm.controls.subject.invalid">
+        {{getValidationMessages(contactForm.controls.name,"Konu")}}
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Mesajınız</mat-label>
+      <textarea matInput formControlName="body" placeholder="Mesajınızı yazın"></textarea>
+      <mat-error *ngIf="contactForm.controls.name.invalid">
+        {{getValidationMessages(contactForm.controls.body,"Mesaj")}}
+      </mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" class="submit-button">Gönder</button>
+  </form>
+</div>

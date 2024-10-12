@@ -1,0 +1,20 @@
+.styled-textarea {
+  width: 100%;
+  height: 200px; /* Yüksekliği ayarlayabilirsiniz */
+  padding: 10px;
+  border: 1px solid #ddd; /* Hafif bir kenarlık */
+  border-radius: 4px; /* Köşeleri yuvarlama */
+  font-size: 16px; /* Yazı boyutu */
+  box-sizing: border-box; /* Dış boşlukları hesaba kat */
+  resize: none; /* Kullanıcı tarafından boyutlandırmayı devre dışı bırakır */
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.ck-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Div'in tamamına yayılması için */
+}

@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+  <div class="container">
+    <a routerLink="/admin" class="navbar-brand d-flex align-items-center">
+      <img src="assets/logo4.jpg" width="45px" height="45px" class="d-inline-block align-top me-2 rounded-circle" alt="Kod Defteri Logo">
+      <span class="fs-4 fw-bold">Kod Defteri Yönetim Paneli</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/admin" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Anasayfa</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="adminDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Yönetim
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="adminDropdown">
+            <li><a class="dropdown-item" routerLink="/admin/categories">Kategoriler</a></li>
+            <li><a class="dropdown-item" routerLink="/admin/articles">Makaleler</a></li>
+          </ul>
+        </li>
+        <li>
+          <a class="nav-link" routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Blog</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

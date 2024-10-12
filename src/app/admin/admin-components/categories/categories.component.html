@@ -1,0 +1,9 @@
+<mat-drawer-container class="admin-container">
+  <mat-drawer mode="side" opened id="side">
+    <app-add-category (createdCategory)="createdCategory($event)"></app-add-category>
+  </mat-drawer>
+  <mat-drawer-content id="main">
+      <app-list-category></app-list-category>
+  </mat-drawer-content>
+</mat-drawer-container>
+

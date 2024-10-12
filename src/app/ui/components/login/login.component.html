@@ -1,0 +1,25 @@
+<div class="login-container">
+  <div class="login-card">
+    <h2 class="login-title">Giriş Yap</h2>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input formControlName="email" type="email" id="email" class="form-control" placeholder="Emailinizi girin" required>
+        <mat-error *ngIf="loginForm.controls.email.invalid && (loginForm.controls.email.touched || loginForm.controls.email.dirty)">
+          {{getValidationMessages(loginForm.controls.email,"Email")}}
+        </mat-error>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Şifre</label>
+        <input formControlName="password" type="password" id="password" class="form-control" placeholder="Şifrenizi girin" required>
+        <mat-error *ngIf="loginForm.controls.password.invalid && (loginForm.controls.password.touched || loginForm.controls.password.dirty)">
+          {{getValidationMessages(loginForm.controls.password,"Şifre")}}
+        </mat-error>
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-block">Giriş Yap</button>
+    </form>
+  </div>
+</div>

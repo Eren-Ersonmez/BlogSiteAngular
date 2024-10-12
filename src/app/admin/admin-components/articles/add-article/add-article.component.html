@@ -1,0 +1,59 @@
+<div class="container mt-4">
+  <div class="row">
+    <h2>Makale Oluşturma</h2>
+    <div class="col-md-9">
+      <form (ngSubmit)="onSubmit()" [formGroup]="articleForm" class="p-4 bg-light rounded shadow-sm">
+
+        <mat-form-field class="full-width mb-4">
+          <mat-label>Başlık</mat-label>
+          <input matInput formControlName="title" placeholder="Makale başlığını giriniz">
+          <mat-error *ngIf="articleForm.controls.title.invalid">
+            {{getValidationMessages(articleForm.controls.title,"Başlık")}}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width mb-4">
+          <mat-label>Kategori</mat-label>
+          <mat-select formControlName="categoryId">
+            <mat-option *ngFor="let item of categories" [value]="item.id">
+              {{ item.name }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="articleForm.controls.categoryId.invalid">
+            {{getValidationMessages(articleForm.controls.categoryId,"Kategori")}}
+          </mat-error>
+        </mat-form-field>
+
+         <mat-form-field class="full-width mb-4">
+         <mat-label>Makale Özeti</mat-label>
+         <textarea matInput formControlName="contentSummary" rows="3" placeholder="Makale özetini giriniz"></textarea>
+         <mat-error *ngIf="articleForm.controls.contentSummary.invalid">
+         {{getValidationMessages(articleForm.controls.contentSummary,"Makale Özet")}}
+          </mat-error>
+         </mat-form-field>
+
+         <mat-form-field class="full-width mb-4">
+         <mat-label>Makale</mat-label>
+         <textarea matInput formControlName="content" rows="3" placeholder="Makale özetini giriniz"></textarea>
+         <mat-error *ngIf="articleForm.controls.content.invalid">
+          {{getValidationMessages(articleForm.controls.content,"Makale")}}
+         </mat-error>
+         </mat-form-field>
+        <div class="text-end">
+          <button mat-raised-button class="btn btn-primary">Makale Oluştur</button>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-3">
+      <div class="card text-white bg-primary shadow-sm">
+        <div class="card-header">Makale Resim</div>
+        <div class="card-body text-center">
+          <img [src]="picture || 'assets/defaultArticle.png'" class="img-thumbnail mb-3">
+        </div>
+        <div class="card-footer">
+          <input (change)="uploadPicture($event)" type="file" class="form-control" name="picture">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="card shadow-sm border-0 mb-4" *ngFor="let article of articles| paginate: { itemsPerPage: pageSize, currentPage: page+1, totalItems: totalCount }">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img [src]="article.picture" class="img-fluid rounded-start" alt="Article Image" />
+    </div>
+    <div class="col-md-8 d-flex flex-column justify-content-between">
+      <div class="card-body">
+        <h5 class="card-title text-primary font-weight-bold mb-3">{{article.title}}</h5>
+        <p class="card-text text-muted">{{article.contentSummary}}</p>
+      </div>
+      <div class="card-footer bg-light border-top-0 p-3 d-flex justify-content-between align-items-center">
+        <div>
+          <span class="badge bg-dark text-light me-2">
+            <i class="fa fa-calendar"></i> {{article.createdDate | date:"dd.MM.yyyy"}}
+          </span>
+          <span class="badge bg-success text-light me-2">
+            <i class="fa fa-folder"></i>{{article.category.name}}
+          </span>
+          <span class="badge bg-info text-light me-2">
+            <i class="fa fa-eye"></i> {{article.viewCount}}
+          </span>
+          <span class="badge bg-primary text-light">
+            <i class="fa fa-comment"></i> {{article.comments.length}}
+          </span>
+        </div>
+        <a [routerLink]="['/article',article.category.name | urlformat,article.title | urlformat,article.id]" class="btn btn-primary btn-sm rounded-pill">
+          <i class="fa fa-arrow-right"></i> Devamını oku
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<pagination-controls (pageChange)="pageChanged($event)" class="my-pagination"></pagination-controls>

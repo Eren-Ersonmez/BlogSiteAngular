@@ -1,0 +1,37 @@
+<div class="add-comment">
+  <h4>Yorum Ekle</h4>
+  <form [formGroup]="commentForm" (ngSubmit)="onSubmit()">
+    <mat-form-field class="full-width">
+      <mat-label>Adınız</mat-label>
+      <input matInput formControlName="commentedBy" placeholder="Adınızı girin">
+      <mat-error *ngIf="commentForm.controls.commentedBy.invalid">
+        {{ getValidationMessages(commentForm.controls.commentedBy, 'Ad') }}
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Yorum</mat-label>
+      <textarea matInput formControlName="content" placeholder="Yorumunuzu yazın"></textarea>
+      <mat-error *ngIf="commentForm.controls.content.invalid">
+        {{ getValidationMessages(commentForm.controls.content, 'Yorum') }}
+      </mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">Yorum Gönder</button>
+  </form>
+</div>
+<div class="comments-container">
+  <h3>Yorumlar</h3>
+  <ng-container *ngIf="comments.length > 0">
+    <div *ngFor="let comment of comments" class="comment-card">
+      <div class="comment-header">
+        <span class="comment-author">{{ comment.commentedBy }} </span>
+        <span class="comment-date">{{ comment.createdDate | date: 'dd.MM.yyyy' }} </span>
+      </div>
+      <p class="comment-text"> {{ comment.content }} </p>
+    </div>
+    <pagination-controls (pageChange)="pageChanged($event)" class="my-pagination"></pagination-controls>
+  </ng-container>
+
+
+</div>

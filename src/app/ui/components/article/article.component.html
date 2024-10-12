@@ -1,0 +1,33 @@
+<div *ngIf="articles && articles.length > 0; else noArticles">
+  <div id="articleWrapper" class="mb-4" *ngFor="let article of articles">
+    <div class="card border-primary shadow-sm">
+      <div class="card-header bg-primary text-white">
+        <h3 class="mb-0"> {{article.title}} </h3>
+        <div class="d-flex flex-wrap mt-2">
+          <span class="badge bg-dark me-2">
+            <i class="fa fa-calendar"></i>  {{article.createdDate | date:'dd.MM.yyyy'}}
+          </span>
+          <span class="badge bg-success me-2">
+            <i class="fa fa-folder"></i> {{categoryName}}
+          </span>
+          <span class="badge bg-info me-2">
+            <i class="fa fa-eye"></i> {{article.viewCount}}
+          </span>
+          <span class="badge bg-primary">
+            <i class="fa fa-comment"></i> {{article.comments.length}}
+          </span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="ck ck-content">
+          <textarea class="styled-textarea">{{article.content}}</textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-comments></app-comments>
+
+<ng-template #noArticles>
+  <p>Hiç makale yok.</p>
+</ng-template>

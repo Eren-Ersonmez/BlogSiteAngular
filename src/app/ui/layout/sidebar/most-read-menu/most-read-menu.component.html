@@ -1,0 +1,12 @@
+<div class="sidebar" style="width: 70%;">
+  <h3>En Çok Okunanlar</h3>
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let article of mostReadArticles">
+      <a [routerLink]="['/article',article.category.name | urlformat,article.title | urlformat,article.id]" class="text-decoration-none text-dark">
+        <i class="fa fa-arrow-right me-2"></i> {{ article.title }}
+      </a>
+      <span class="badge bg-secondary float-end">{{ article.viewCount }} Okuma</span>
+    </li>
+  </ul>
+</div>
+

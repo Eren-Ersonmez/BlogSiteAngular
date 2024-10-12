@@ -1,0 +1,59 @@
+
+.container {
+  margin-top: 20px;
+}
+
+
+.mat-form-field {
+  margin-bottom: 20px;
+}
+
+
+.full-width {
+  width: 100%;
+}
+
+.card {
+  margin-top: 20px;
+}
+
+.card-header {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+
+.card-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+
+.card-footer {
+  padding: 10px;
+}
+
+.img-thumbnail {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+input[type="file"] {
+  background-color: white;
+  border-radius: 4px;
+  padding: 5px;
+}
+
+button {
+  width: 100%;
+  margin-top: 20px;
+}
+h2 {
+  font-size: 24px;
+  color: #3f51b5;
+  margin-bottom: 20px;
+}
